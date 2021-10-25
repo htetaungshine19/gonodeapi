@@ -465,7 +465,6 @@ const decodeVidstreamingIframeURL = async url => {
   } else {
     _URLs = _URLs.filter(url => url.includes('.mp4') || url.includes('m3u8'));
   }
-
   const URLs = [];
   Array.from({length: _URLs.length}, (v, k) => {
     const option = k + 1;
