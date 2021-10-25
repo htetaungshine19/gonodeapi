@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
-dotenv.config()
+dotenv.config();
 
 module.exports = {
-  BASE_URL: "https://gogoanime.pe",
+  BASE_URL: 'https://gogoanime.pe/'
 };
