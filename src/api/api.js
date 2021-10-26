@@ -459,9 +459,11 @@ const decodeVidstreamingIframeURL = async url => {
 
   const data = await cloudscraper(realUrl);
   const match = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+  // console.log(realUrl);
+  // return Promise.all(String(data));
   let _URLs = String(data).match(match);
   if (_URLs == null) {
-    _URLs = [];
+    return Promise.reject();
   } else {
     _URLs = _URLs.filter(url => url.includes('.mp4') || url.includes('m3u8'));
   }
@@ -477,10 +479,13 @@ const decodeVidstreamingIframeURL = async url => {
       url: url || null
     });
   });
-
+  // console.log(URLs);
   return Promise.all(URLs);
 };
-
+// decodeVidstreamingIframeURL(
+ 
+//   'gogoplay1.com/streaming.php?id=MTYxMzQ4&title=Aware%21+Meisaku-kun+Episode+90'
+// );
 module.exports = {
   animeEpisodeHandler,
   recentReleaseEpisodes,
